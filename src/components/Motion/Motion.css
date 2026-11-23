@@ -1,0 +1,51 @@
+/*
+  SITE-WIDE INTERACTION MOTION
+  Motion is applied only to existing cards, links, buttons and form controls.
+*/
+:root{--motion-ease:cubic-bezier(.16,1,.3,1);--motion-fast:240ms;--motion-medium:480ms}
+
+/* Buttons and text links */
+.v3-nav-cta,.v3-hero-copy a,.v3-cta>a,.service-return a,.text-link,.v3-menu-foot a,.contact-direct a,.contact-back-link,.contact-form button,.audit-form button{transition:transform var(--motion-fast) var(--motion-ease),color var(--motion-fast),background-color var(--motion-fast),border-color var(--motion-fast),box-shadow var(--motion-medium) var(--motion-ease)}
+.v3-nav-cta:hover,.v3-hero-copy a:hover,.v3-cta>a:hover,.service-return a:hover,.text-link:hover,.contact-direct a:hover,.contact-back-link:hover{transform:translateY(-3px)}
+.v3-nav-cta:active,.v3-hero-copy a:active,.v3-cta>a:active,.service-return a:active,.text-link:active,.contact-form button:active,.audit-form button:active{transform:translateY(1px) scale(.975);transition-duration:90ms}
+.v3-nav-cta i,.v3-footer-pitch>a i,.service-return svg,.text-link svg,.service-workflow li svg{transition:transform var(--motion-medium) var(--motion-ease)}
+.v3-nav-cta:hover i,.v3-footer-pitch>a:hover i{transform:translate(2px,-2px) rotate(45deg)}
+.service-return a:hover svg,.text-link:hover svg{transform:translateX(-5px)}
+.v3-hero-copy a:first-child:hover{box-shadow:0 18px 44px rgba(125,91,34,.4);transform:translateY(-4px) scale(1.015)}
+.v3-cta>a{position:relative}.v3-cta>a::after,.service-return a::after,.text-link::after{content:"";position:absolute;left:0;bottom:5px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform var(--motion-medium) var(--motion-ease)}.v3-cta>a:hover::after,.service-return a:hover::after,.text-link:hover::after{transform:scaleX(1);transform-origin:left}
+.contact-form button,.audit-form button{position:relative;overflow:hidden}.contact-form button::after,.audit-form button::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.2) 48%,transparent 70%);transform:translateX(-120%);transition:transform .75s var(--motion-ease)}.contact-form button:hover::after,.audit-form button:hover::after{transform:translateX(120%)}
+
+/* Navigation */
+.v3-nav>nav a{transition:color var(--motion-fast),background-color var(--motion-fast),transform var(--motion-fast) var(--motion-ease)}.v3-nav>nav a:hover{transform:translateY(-2px)}
+.v3-footer-directory nav a{transition:color var(--motion-fast),transform var(--motion-fast) var(--motion-ease)}.v3-footer-directory nav a:hover{transform:translateX(7px)}
+.v3-menu-panel nav a strong,.v3-menu-panel nav a i{transition:transform var(--motion-medium) var(--motion-ease),color var(--motion-fast)}.v3-menu-panel nav a:hover strong{transform:translateX(10px)}.v3-menu-panel nav a:hover i{transform:translate(3px,-3px)}
+
+/* Existing cards: depth, border response and controlled light sweep */
+.v3-service-list>a,.v3-work-list>a,.v3-principles article,.service-scope li,.service-workflow li,.detail-panel,.service-expectations,.career-values,.portfolio-note{will-change:transform;transition:transform var(--motion-medium) var(--motion-ease),border-color var(--motion-fast),box-shadow var(--motion-medium) var(--motion-ease),background-color var(--motion-fast)}
+.v3-service-list>a,.v3-work-list>a,.v3-principles article{transform-style:preserve-3d}
+.v3-service-list>a:hover{transform:translateY(-8px) perspective(900px) rotateX(1.4deg);box-shadow:0 32px 80px rgba(0,0,0,.36)}
+.v3-service-list>a>*,.v3-work-list>a>*{transition:transform var(--motion-medium) var(--motion-ease)}.v3-service-list>a:hover>*{transform:translateY(-2px)}
+.v3-service-action{transition:transform var(--motion-medium) var(--motion-ease),letter-spacing var(--motion-medium),color var(--motion-fast)}.v3-service-list>a:hover .v3-service-action{transform:translateX(7px);letter-spacing:.15em}
+.v3-work-list>a:hover{transform:translateY(-8px) scale(1.008);border-color:rgba(210,173,99,.42);box-shadow:0 36px 85px rgba(0,0,0,.35)}.v3-work-list>a:hover .v3-project-visual{transform:scale(1.025)}.v3-work-list>a:hover .v3-work-copy{transform:translateY(-3px)}
+.v3-principles article:hover{transform:translateY(-7px);border-color:rgba(210,173,99,.45);box-shadow:0 24px 65px rgba(0,0,0,.25)}
+.service-scope li:hover{transform:translateY(-7px);box-shadow:0 22px 45px rgba(0,0,0,.24)}
+.service-workflow li:hover svg{transform:translate(4px,-4px)}
+
+/* Form controls */
+.contact-form input,.contact-form textarea,.audit-form input,.audit-form textarea{transition:border-color var(--motion-fast),background-color var(--motion-fast),padding-left var(--motion-medium) var(--motion-ease),box-shadow var(--motion-medium)}
+.contact-form input:hover,.contact-form textarea:hover,.audit-form input:hover,.audit-form textarea:hover{border-color:rgba(210,173,99,.52)}
+.contact-form input:focus,.contact-form textarea:focus,.audit-form input:focus,.audit-form textarea:focus{padding-left:10px;background:rgba(210,173,99,.035);box-shadow:0 8px 22px -18px rgba(210,173,99,.8)}
+
+/* Scroll entrances for existing UI elements */
+@keyframes uiCardReveal{from{opacity:0;transform:translateY(48px) scale(.975);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes uiRowReveal{from{opacity:0;transform:translateX(-38px)}to{opacity:1;transform:none}}
+@keyframes uiButtonReveal{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
+@supports(animation-timeline:view()){
+  .v3-service-list>a,.v3-work-list>a,.v3-principles article,.service-scope li,.detail-panel,.service-expectations,.career-values,.portfolio-note{animation:uiCardReveal both var(--motion-ease);animation-timeline:view();animation-range:entry 4% cover 30%}
+  .v3-service-list>a:nth-child(2),.v3-work-list>a:nth-child(2),.v3-principles article:nth-child(2),.service-scope li:nth-child(2){animation-range:entry 8% cover 34%}.v3-service-list>a:nth-child(3),.v3-work-list>a:nth-child(3),.v3-principles article:nth-child(3),.service-scope li:nth-child(3){animation-range:entry 12% cover 38%}.v3-service-list>a:nth-child(4),.service-scope li:nth-child(4){animation-range:entry 16% cover 42%}.v3-service-list>a:nth-child(5),.service-scope li:nth-child(5){animation-range:entry 20% cover 46%}.v3-service-list>a:nth-child(6){animation-range:entry 24% cover 50%}
+  .v3-method li,.service-workflow li,.v3-careers li{animation:uiRowReveal both var(--motion-ease);animation-timeline:view();animation-range:entry 5% cover 28%}
+  .v3-cta>a,.v3-footer-pitch>a,.contact-form button,.audit-form button{animation:uiButtonReveal both var(--motion-ease);animation-timeline:view();animation-range:entry 10% cover 38%}
+}
+
+@media(hover:none){.v3-service-list>a:hover,.v3-work-list>a:hover,.v3-principles article:hover,.service-scope li:hover{transform:none}.v3-service-list>a:hover>*,.v3-work-list>a:hover>*{transform:none}}
+@media(prefers-reduced-motion:reduce){.v3-nav-cta,.v3-hero-copy a,.v3-cta>a,.service-return a,.text-link,.v3-menu-foot a,.contact-direct a,.contact-back-link,.contact-form button,.audit-form button,.v3-nav>nav a,.v3-footer-directory nav a,.v3-menu-panel nav a strong,.v3-menu-panel nav a i,.v3-service-list>a,.v3-work-list>a,.v3-principles article,.service-scope li,.service-workflow li,.detail-panel,.service-expectations,.career-values,.portfolio-note,.contact-form input,.contact-form textarea,.audit-form input,.audit-form textarea{animation:none!important;transition:none!important;transform:none!important;filter:none!important}}

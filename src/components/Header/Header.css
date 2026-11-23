@@ -1,0 +1,324 @@
+/* =====================================================================
+   HEADER — navigation layout, spacing, motion & mobile menu
+   ===================================================================== */
+
+/* ------------------------------- shell ------------------------------ */
+.v3-header{
+  position:fixed;
+  z-index:20;
+  top:0; left:0; right:0;
+  height:76px;
+  border:0;
+  border-bottom:1px solid rgba(226,220,255,.10);
+  background:linear-gradient(180deg,rgba(13,10,36,.88),rgba(8,6,28,.72));
+  box-shadow:0 24px 60px -34px rgba(0,0,0,.95);
+  backdrop-filter:blur(22px) saturate(140%);
+  -webkit-backdrop-filter:blur(22px) saturate(140%);
+}
+.v3-header::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,113,137,.5),rgba(142,124,255,.45),transparent);
+  opacity:.55;
+  pointer-events:none;
+}
+
+/* ------------------------------- grid ------------------------------- */
+.v3-nav{
+  width:min(calc(100% - 56px),1240px);
+  height:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:190px 1fr auto;
+  align-items:center;
+  gap:26px;
+}
+
+/* ---------------------------- brand lockup -------------------------- */
+.v3-brand-lockup{display:flex;align-items:center;gap:13px}
+.v3-brand-lockup>.v3-brand{width:112px;height:33px}
+.v3-brand-lockup>span{
+  padding-left:13px;
+  border-left:1px solid rgba(255,255,255,.16);
+  color:#88839e;
+  font-size:.56rem;
+  line-height:1.25;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+/* --------------------------- desktop nav ---------------------------- */
+.v3-nav>nav{
+  height:100%;
+  display:flex;
+  justify-content:center;
+  gap:2px;
+}
+.v3-nav>nav a{
+  position:relative;
+  isolation:isolate;
+  height:100%;
+  display:flex;
+  align-items:center;
+  padding:0 clamp(14px,1.6vw,24px);
+  color:#a8a2bf;
+  font-size:.68rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  transition:color .35s ease;
+}
+/* soft glow wash on hover */
+.v3-nav>nav a::before{
+  content:"";
+  position:absolute; inset:14px 4px;
+  z-index:-1;
+  border-radius:14px;
+  background:radial-gradient(60% 120% at 50% 100%,rgba(255,113,137,.16),transparent 72%);
+  opacity:0;
+  transition:opacity .45s ease;
+}
+/* underline that grows from the centre of the header edge */
+.v3-nav>nav a::after{
+  content:"";
+  position:absolute; left:50%; bottom:0;
+  width:calc(100% - 26px);
+  height:2px;
+  border-radius:2px;
+  background:linear-gradient(90deg,#8e7cff,#ff7189);
+  transform:translateX(-50%) scaleX(0);
+  transform-origin:center;
+  opacity:0;
+  transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .3s ease;
+}
+.v3-nav>nav a:hover,
+.v3-nav>nav a:focus-visible{color:#fff}
+.v3-nav>nav a:hover::before,
+.v3-nav>nav a:focus-visible::before{opacity:1}
+.v3-nav>nav a:hover::after,
+.v3-nav>nav a:focus-visible::after{transform:translateX(-50%) scaleX(1);opacity:1}
+
+/* ------------------------------- CTA -------------------------------- */
+.v3-nav-cta{
+  position:relative;
+  justify-self:end;
+  isolation:isolate;
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  height:44px;
+  padding:0 5px 0 20px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:#e9e5f8;
+  font-size:.66rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  transition:color .4s ease,border-color .4s ease,transform .4s cubic-bezier(.22,1,.36,1);
+}
+.v3-nav-cta::before{
+  content:"";
+  position:absolute; inset:0;
+  z-index:-1;
+  background:linear-gradient(120deg,#ff7189,#8e7cff);
+  transform:translateY(101%);
+  transition:transform .55s cubic-bezier(.22,1,.36,1);
+}
+.v3-nav-cta:hover{
+  color:#120a22;
+  border-color:transparent;
+  transform:translateY(-1px);
+}
+.v3-nav-cta:hover::before{transform:translateY(0)}
+.v3-nav-cta i{
+  width:32px; height:32px;
+  display:grid; place-items:center;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
+  font-style:normal;
+  font-size:.8rem;
+  color:#ff8297;
+  transition:transform .45s cubic-bezier(.22,1,.36,1),background .35s ease,color .35s ease,border-color .35s ease;
+}
+.v3-nav-cta:hover i{
+  transform:rotate(45deg);
+  background:#120a22;
+  border-color:#120a22;
+  color:#ff8297;
+}
+
+/* --------------------------- mobile trigger -------------------------- */
+.v3-menu{display:none}
+
+/* =============================== <= 1000 ============================= */
+@media(max-width:1000px){
+  .v3-nav{grid-template-columns:160px 1fr auto}
+  .v3-brand-lockup>span{display:none}
+}
+
+/* =============================== <= 900 ============================== */
+@media(max-width:900px){
+  .v3-header{height:64px}
+  .v3-nav{width:calc(100% - 36px);grid-template-columns:1fr auto;gap:0}
+  .v3-nav>nav,.v3-nav-cta{display:none}
+
+  /* --- trigger --- */
+  .v3-menu{display:block;justify-self:end}
+  .v3-menu summary{
+    position:relative;
+    width:44px; height:44px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    list-style:none;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:50%;
+    background:rgba(255,255,255,.04);
+    transition:background .3s ease,border-color .3s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .v3-menu summary::-webkit-details-marker{display:none}
+  .v3-menu summary::marker{content:""}
+  .v3-menu summary:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.3)}
+  .v3-menu summary span{
+    position:absolute; width:1px; height:1px;
+    overflow:hidden; clip-path:inset(50%); white-space:nowrap;
+  }
+  .v3-menu summary i{
+    display:block;
+    width:18px; height:1.5px;
+    border-radius:2px;
+    background:#fff;
+    transition:transform .45s cubic-bezier(.22,1,.36,1),width .35s ease,background .3s ease;
+  }
+  /* bars morph into a close X while the panel is open */
+  .v3-menu[open] summary{position:relative;z-index:40;background:rgba(255,255,255,.08)}
+  .v3-menu[open] summary i:first-of-type{transform:translateY(3.75px) rotate(45deg)}
+  .v3-menu[open] summary i:last-of-type{transform:translateY(-3.75px) rotate(-45deg)}
+
+  /* --- fullscreen panel --- */
+  .v3-menu-panel{
+    position:fixed;
+    inset:0;
+    z-index:30;
+    display:flex;
+    flex-direction:column;
+    padding:24px;
+    background:
+      radial-gradient(circle at 82% 6%,rgba(142,124,255,.22),transparent 34%),
+      radial-gradient(circle at 12% 94%,rgba(255,113,137,.14),transparent 42%),
+      #08061c;
+    overscroll-behavior:contain;
+  }
+  .v3-menu:not([open]) .v3-menu-panel{display:none}
+
+  .v3-menu-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding:0 64px 22px 0;   /* clears the X */
+    border-bottom:1px solid rgba(255,255,255,.13);
+    color:#77718d;
+    font-size:.6rem;
+    line-height:1.35;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    text-align:right;
+  }
+
+  /* --- mobile links --- */
+  .v3-menu-panel nav{
+    display:flex;
+    flex-direction:column;
+    margin-top:clamp(18px,4.5vh,38px);
+  }
+  .v3-menu-panel nav a{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:16px;
+    padding:clamp(12px,1.9vh,18px) 0;
+    border-bottom:1px solid rgba(255,255,255,.09);
+    color:#efeafd;
+    transition:padding-left .45s cubic-bezier(.22,1,.36,1),color .35s ease;
+  }
+  .v3-menu-panel nav a::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-1px;
+    height:1px;
+    background:linear-gradient(90deg,#ff7189,#8e7cff,transparent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .55s cubic-bezier(.22,1,.36,1);
+  }
+  .v3-menu-panel nav a:hover,
+  .v3-menu-panel nav a:active{padding-left:10px;color:#fff}
+  .v3-menu-panel nav a:hover::after,
+  .v3-menu-panel nav a:active::after{transform:scaleX(1)}
+  .v3-menu-panel nav a strong{
+    font-size:clamp(1.75rem,8.5vw,3.2rem);
+    font-weight:400;
+    line-height:1;
+    letter-spacing:-.045em;
+  }
+  .v3-menu-panel nav a i{
+    font-style:normal;
+    color:#ff7b92;
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
+  }
+  .v3-menu-panel nav a:hover i{transform:translate(3px,-3px)}
+
+  .v3-menu-foot{
+    position:absolute;
+    left:24px; right:24px; bottom:24px;
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.09);
+    color:#736d84;
+    font-size:.6rem;
+    letter-spacing:.06em;
+  }
+  .v3-menu-foot a{color:#ff879b}
+
+  /* --- staged entrance --- */
+  .v3-menu[open] .v3-menu-panel{animation:v3-panel-in .35s ease both}
+  .v3-menu[open] .v3-menu-head{animation:v3-fade-up .5s cubic-bezier(.22,1,.36,1) both;animation-delay:.04s}
+  .v3-menu[open] .v3-menu-panel nav a{animation:v3-fade-up .55s cubic-bezier(.22,1,.36,1) both}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(1){animation-delay:.10s}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(2){animation-delay:.16s}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(3){animation-delay:.22s}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(4){animation-delay:.28s}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(5){animation-delay:.34s}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(6){animation-delay:.40s}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(7){animation-delay:.46s}
+  .v3-menu[open] .v3-menu-panel nav a:nth-child(8){animation-delay:.52s}
+  .v3-menu[open] .v3-menu-foot{animation:v3-fade-up .5s cubic-bezier(.22,1,.36,1) both;animation-delay:.56s}
+}
+
+/* ---------------------------- keyframes ----------------------------- */
+@keyframes v3-panel-in{from{opacity:0}to{opacity:1}}
+@keyframes v3-fade-up{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ------------------------ reduced motion ---------------------------- */
+@media(prefers-reduced-motion:reduce){
+  .v3-header *,
+  .v3-header *::before,
+  .v3-header *::after{
+    animation-duration:.001ms !important;
+    animation-delay:0ms !important;
+    transition-duration:.001ms !important;
+  }
+}

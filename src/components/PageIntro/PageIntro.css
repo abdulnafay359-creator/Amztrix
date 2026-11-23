@@ -1,0 +1,7 @@
+/* PAGE INTRO: clean non-photographic hero used on internal pages. */
+.v3-page-intro{min-height:52svh;max-height:620px;padding:115px var(--site-gutter) 46px;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--v3-line);background:radial-gradient(circle at 78% 34%,rgba(47,118,85,.16),transparent 34%),radial-gradient(circle at 68% 90%,rgba(168,61,64,.08),transparent 28%),linear-gradient(90deg,rgba(8,12,8,.88),rgba(8,12,8,.3) 60%,transparent)}
+.v3-page-meta{display:flex;justify-content:space-between;margin-bottom:38px;color:#858776;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}.v3-page-meta span:first-child{color:var(--theme-gold)}
+.v3-page-intro h1{max-width:14ch;margin:0;font-size:clamp(3.2rem,5vw,5.3rem);line-height:.9;letter-spacing:-.07em;font-weight:400;background:linear-gradient(135deg,#fff8e8 18%,#d9bc79 68%,#b95b50);-webkit-background-clip:text;color:transparent}
+.v3-page-intro>p{max-width:570px;margin:1.8rem 0 0;color:#aaa894;font-size:1rem;line-height:1.72}
+@media(max-width:900px){.v3-page-intro{padding-inline:22px}.v3-page-meta span:last-child{display:none}}
+@media(max-width:700px){.v3-page-intro{min-height:auto;max-height:none;padding-top:105px;padding-bottom:48px}.v3-page-meta{margin-bottom:28px}}

@@ -1,0 +1,10 @@
+/* HOME PAGE ONLY — homepage composition. Shared cards and CTA stay in /components. */
+.v3-hero{border-bottom:1px solid var(--theme-line)}
+.v3-manifesto{border-bottom:1px solid var(--theme-line)}
+.v3-work-section{background:rgba(5,10,7,.7)}
+.v3-method{border-top:1px solid var(--theme-line)}
+.v3-boundary{border-block:1px solid var(--theme-line)}
+
+/* HOME ATMOSPHERE — reduce the feeling of stacked opaque sections. */
+.v3-manifesto,.v3-section,.v3-method,.v3-boundary{background-color:transparent!important;background-image:linear-gradient(180deg,rgba(6,11,7,.2),rgba(6,11,7,.52),rgba(6,11,7,.16))!important}.v3-work-section{background:linear-gradient(180deg,rgba(5,10,7,.22),rgba(5,10,7,.62),rgba(5,10,7,.18))!important}.v3-boundary{margin:0 var(--site-gutter) clamp(55px,7vw,90px);padding-inline:clamp(28px,5vw,70px);border:1px solid rgba(210,173,99,.14);border-radius:34px;backdrop-filter:blur(10px)}
+@media(max-width:700px){.v3-boundary{margin-inline:22px}}

@@ -1,0 +1,70 @@
+/*
+  AMZTRIX PREMIUM THEME
+  Change the six variables below to recolor the complete website.
+*/
+:root{
+  --theme-bg:#080b08;
+  --theme-surface:#101710;
+  --theme-surface-raised:#172018;
+  --theme-ivory:#f2ead8;
+  --theme-gold:#d2ad63;
+  --theme-green:#2f7655;
+  --theme-red:#a83d40;
+  --theme-muted:#aaa894;
+  --theme-line:rgba(210,173,99,.20);
+  --v3-bg:var(--theme-bg);
+  --v3-ink:var(--theme-ivory);
+  --v3-muted:var(--theme-muted);
+  --v3-line:var(--theme-line);
+  --v3-orange:var(--theme-gold);
+  --aurora-violet:var(--theme-green);
+  --aurora-blue:var(--theme-gold);
+  --aurora-coral:var(--theme-red);
+}
+
+html,body{background:var(--theme-bg);color:var(--theme-ivory)}
+body::before{background:radial-gradient(circle at 14% 10%,rgba(47,118,85,.14),transparent 33%),radial-gradient(circle at 90% 75%,rgba(168,61,64,.08),transparent 28%),linear-gradient(90deg,rgba(8,11,8,.7),rgba(8,11,8,.18) 60%,transparent)}
+body .astra-webgl-background{--phase-opacity:.88;--phase-sat:1.03;--phase-bright:.94;--phase-contrast:1.02}
+.astra-vignette{background:radial-gradient(ellipse at center,transparent 30%,rgba(4,7,4,.24) 72%,rgba(3,5,3,.7) 100%)}
+
+/* Shared backgrounds and typography */
+.v3-hero{background:radial-gradient(circle at 76% 40%,rgba(47,118,85,.13),transparent 33%),radial-gradient(circle at 88% 76%,rgba(168,61,64,.07),transparent 28%)}
+.v3-hero-copy h1{background:linear-gradient(135deg,#fff8e8 18%,#d9bc79 62%,#b95b50);-webkit-background-clip:text;color:transparent}
+.v3-manifesto,.v3-section,.v3-method,.v3-boundary,.v3-careers,.contact-story{background:rgba(9,14,9,.58)}
+.v3-work-section{background:rgba(5,10,7,.7)}
+.v3-page-intro{background:radial-gradient(circle at 80% 32%,rgba(47,118,85,.17),transparent 34%),radial-gradient(circle at 68% 90%,rgba(168,61,64,.08),transparent 28%),linear-gradient(90deg,rgba(8,12,8,.88),rgba(8,12,8,.34) 62%,transparent)}
+.eyebrow,.v3-section-head>span,.v3-method-intro>span,.v3-boundary div>span,.v3-principles span,.v3-careers>div>span,.v3-editorial-note span,.v3-page-meta span:first-child{color:var(--theme-gold)}
+.text-link,.contact-direct a{color:var(--theme-gold)}
+
+/* Header */
+.v3-header{border-color:var(--theme-line);background:rgba(7,11,7,.84)}
+.v3-brand-lockup>span{border-color:var(--theme-line);color:#8f907e}
+.v3-nav>nav a{color:#bbb8a4}.v3-nav>nav a small{color:#686957}.v3-nav>nav a::after{background:linear-gradient(90deg,var(--theme-gold),var(--theme-red))}
+.v3-nav-cta{border-color:var(--theme-line)}.v3-nav-cta i{border-color:rgba(210,173,99,.36);color:var(--theme-gold)}.v3-nav-cta:hover i{background:var(--theme-gold);color:#10130d}
+.v3-menu-panel{background:radial-gradient(circle at 84% 8%,rgba(47,118,85,.22),transparent 30%),radial-gradient(circle at 10% 88%,rgba(168,61,64,.12),transparent 25%),var(--theme-bg)}.v3-menu-panel nav a,.v3-menu-head{border-color:var(--theme-line)}.v3-menu-panel nav a i,.v3-menu-foot a{color:var(--theme-gold)}
+
+/* Buttons and calls to action */
+.v3-hero-copy a:first-child{background:linear-gradient(110deg,#bd9148,var(--theme-gold));box-shadow:0 14px 38px rgba(125,91,34,.25);color:#11140e}
+.v3-cta{color:#f8f0dc;background:radial-gradient(circle at 82% 14%,rgba(210,173,99,.2),transparent 34%),linear-gradient(125deg,#183c2c 0%,#255c43 48%,#762c30 100%)}
+
+/* Service and content cards */
+.v3-service-list>a{border-color:var(--theme-line);background:linear-gradient(145deg,rgba(24,35,24,.82),rgba(10,16,11,.72));box-shadow:inset 0 1px rgba(255,244,215,.05),0 24px 70px rgba(0,0,0,.2)}
+.v3-service-list>a::before{background:radial-gradient(circle,rgba(210,173,99,.22),transparent 68%)}.v3-service-list>a:nth-child(2n)::before{background:radial-gradient(circle,rgba(47,118,85,.25),transparent 68%)}.v3-service-list>a:nth-child(3n)::before{background:radial-gradient(circle,rgba(168,61,64,.2),transparent 68%)}
+.v3-service-list>a:hover{border-color:rgba(210,173,99,.52);box-shadow:0 28px 75px rgba(0,0,0,.32)}.v3-service-id,.v3-service-action{color:var(--theme-gold)}.v3-service-list p{color:#aaa894}
+.portfolio-note,.detail-panel,.career-values,.service-expectations,.ownership-panel,.audit-form,.contact-form{border-color:var(--theme-line);background:linear-gradient(145deg,rgba(24,35,24,.86),rgba(9,14,10,.82));box-shadow:0 25px 80px rgba(0,0,0,.22),inset 0 1px rgba(255,244,215,.04)}
+.v3-principles{background:rgba(9,14,9,.62)}.v3-principles article,.v3-principles article:first-child{border-color:var(--theme-line);background:linear-gradient(145deg,rgba(24,35,24,.78),rgba(10,16,11,.7))}
+
+/* Work cards and diagrams */
+.v3-work-list>a{border-color:var(--theme-line);background:linear-gradient(145deg,rgba(23,34,24,.88),rgba(9,15,10,.82))}
+.v3-project-visual{background:radial-gradient(circle at 50% 44%,rgba(47,118,85,.4),rgba(7,13,8,.94) 70%)}
+.v3-ops-trace::before{background:linear-gradient(90deg,var(--theme-red),var(--theme-gold));box-shadow:0 0 18px rgba(210,173,99,.3)}.v3-ops-trace i{background:#f1d798;box-shadow:0 0 24px rgba(210,173,99,.72)}
+.v3-ads-bars i{background:linear-gradient(#d8bd79,#367858 56%,#a83d40)}.v3-health-ring i{border-color:var(--theme-red);box-shadow:0 0 64px rgba(168,61,64,.28),inset 0 0 42px rgba(47,118,85,.15)}
+
+/* Footer */
+.v3-footer{background:linear-gradient(180deg,#090d09,#050705);border-color:var(--theme-line)}.v3-footer-pitch,.v3-footer-bottom{border-color:var(--theme-line)}.v3-footer-index,.v3-footer-capabilities>span{color:#827d65}.v3-footer-pitch>a{border-color:rgba(210,173,99,.58);color:#ead39e}.v3-footer-pitch>a:hover{background:var(--theme-gold);color:#10130d}.v3-footer-directory nav a:hover{color:var(--theme-gold)}
+
+/* Contact */
+.contact-scene::before,.contact-scene:nth-child(even)::before{background:linear-gradient(90deg,rgba(7,11,7,.86),rgba(7,11,7,.65) 40%,rgba(7,11,7,.16) 65%,transparent 82%)}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--theme-gold)}
+
+@media(max-width:900px){.contact-scene::before,.contact-scene:nth-child(even)::before{background:linear-gradient(180deg,rgba(7,11,7,.78),rgba(7,11,7,.3))}}

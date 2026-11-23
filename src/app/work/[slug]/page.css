@@ -1,0 +1,4 @@
+/* INDIVIDUAL MANAGEMENT AREA PAGE ONLY */
+.project-detail{display:grid;gap:28px}
+.project-detail>.v3-project-visual{min-height:440px;height:440px;border:1px solid var(--theme-line);border-radius:18px}
+@media(max-width:700px){.project-detail>.v3-project-visual{min-height:300px;height:300px}}

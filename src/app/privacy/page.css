@@ -1,0 +1,8 @@
+/* PRIVACY PAGE ONLY — readable policy with a persistent safety summary */
+.privacy-layout{display:grid;grid-template-columns:300px minmax(0,760px);justify-content:center;gap:clamp(55px,9vw,140px);padding:clamp(70px,9vw,125px) var(--site-gutter);background:rgba(7,12,8,.78)}.privacy-layout>aside{position:sticky;top:110px;height:max-content;padding:25px;border-top:2px solid var(--theme-red);background:rgba(19,27,20,.75)}.privacy-layout aside span{color:var(--theme-red);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}.privacy-layout aside p{color:#c8c1ae;line-height:1.7}.privacy-layout aside a{color:var(--theme-gold);font-size:.85rem}.privacy-copy{display:grid;gap:0}.privacy-copy section{padding:0 0 44px;margin-bottom:44px;border-bottom:1px solid var(--theme-line)}.privacy-copy h2{margin:0 0 18px;font-size:clamp(1.7rem,2.6vw,2.5rem);font-weight:400}.privacy-copy p{margin:0;color:var(--theme-muted);font-size:1rem;line-height:1.8}
+@media(max-width:760px){.privacy-layout{grid-template-columns:1fr}.privacy-layout>aside{position:static}}
+
+/* ATMOSPHERIC PASS — calm reading surface without hiding the background. */
+.privacy-page .v3-page-intro{min-height:58svh;background:radial-gradient(circle at 78% 50%,rgba(74,139,89,.15),transparent 25%),linear-gradient(90deg,rgba(6,11,7,.75),transparent)}
+.privacy-layout{margin:clamp(34px,5vw,72px) var(--site-gutter);padding:clamp(45px,6vw,76px);border:1px solid rgba(210,173,99,.14);border-radius:36px;background:linear-gradient(140deg,rgba(15,24,17,.62),rgba(8,13,9,.24));backdrop-filter:blur(11px)}.privacy-layout>aside{border-radius:20px;background:rgba(26,38,28,.48)}
+@media(max-width:760px){.privacy-layout{margin-inline:22px;padding:36px 24px}}

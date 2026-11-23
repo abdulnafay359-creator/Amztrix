@@ -1,0 +1,2 @@
+/* NOT-FOUND PAGE ONLY */
+.section:has(>a[href="/"]){min-height:220px;display:grid;place-items:start}

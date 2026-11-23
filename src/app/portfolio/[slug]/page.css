@@ -1,0 +1,6 @@
+/* INDIVIDUAL PORTFOLIO EXAMPLE PAGE ONLY */
+.project-detail{display:grid;gap:28px}
+.project-detail>.v3-project-visual{min-height:440px;height:440px;border:1px solid var(--theme-line);border-radius:18px}
+.example-disclosure{display:flex;justify-content:space-between;gap:25px;padding:16px 0;border-block:1px solid var(--theme-line);color:var(--theme-muted);font-size:.75rem}
+.example-disclosure strong{color:var(--theme-gold);font-weight:600}
+@media(max-width:700px){.project-detail>.v3-project-visual{min-height:300px;height:300px}.example-disclosure{flex-direction:column}}
